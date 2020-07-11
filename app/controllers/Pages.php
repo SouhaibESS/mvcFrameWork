@@ -1,9 +1,11 @@
 <?php
 
-class Pages extends Controller{
+class Pages extends Controller
+{
     public function __construct()
     {
-        
+        header('Access-Control-Allow-Origin: *');
+        header('Content-Type: application/json');
     }
 
     public function about()
@@ -11,7 +13,8 @@ class Pages extends Controller{
         $data = [
             'title' => 'About us',
         ];
-        $this->view('pages/about',$data);
+
+        $this->json_response($data);
     }
 
     public function index()
@@ -19,6 +22,7 @@ class Pages extends Controller{
         $data = [
             'title' => 'Welcome'
         ];
-        $this->view('pages/index',$data);
+
+        $this->json_response($data);
     }
 }
